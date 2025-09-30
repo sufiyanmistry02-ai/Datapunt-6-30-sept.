@@ -20,6 +20,13 @@ class Recept:
             return self.totaal_kcal() / self.__aantal_personen
         return self.totaal_kcal()
 
+    def toon_plantaardig(self):
+        tekst = f"=== {self.__naam} (plantaardig) ===\n{self.__omschrijving}\n"
+        tekst += f"(voor {self.__aantal_personen} personen)\n\nIngrediënten:\n"
+        for ing in self.__ingredienten:
+            tekst += f"- {ing.alternatief()}\n"
+        return tekst
+
     def __str__(self):
         tekst = f"=== {self.__naam} ===\n{self.__omschrijving}\n"
         tekst += f"(voor {self.__aantal_personen} personen)\n\nIngrediënten:\n"
